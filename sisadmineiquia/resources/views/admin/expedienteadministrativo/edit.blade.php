@@ -31,10 +31,12 @@
 				<input  type="text" name="fechaapertura" value="{{$expedienteadministrativo->FECHAAPERTURA}}" required class="tcal form-control" placeholder="00-00-0000" id="fechaApertura" onkeyup="corregirFecha();">
 				<div id="mensajeFechaAper" class="errores">Fecha invalida</div> 
 			</div>
-			<div class="form-group">
-				<label>Codigo Acuerdo</label>
-				<input class="form-control" name="codigocontrato" required class="form-control" value="{{$expedienteadministrativo->CODIGOCONTRATO}}" placeholder="AC-000-0000" id="codCon" onkeyup="corregirCodCon();">
-        	<div id="mensajeCodCon" class="errores">Código invalido</div>
+      <div class="form-group">
+        <label>Codigo Contratacion</label>
+        <select name="codigocontrato" required class="form-control" class="form-control selectpicker" placeholder="AC-000-0000" id="codCon" value="{{old('codigocontrato')}}" onkeyup="corregirCodCon();">
+                         <option value="{{$expedienteadministrativo->CODIGOCONTRATO}}">{{$expedienteadministrativo->CODIGOCONTRATO}}</option>
+                </select>
+          <div id="mensajeCodCon" class="errores">Código invalido</div>
       </div>
       <div class="form-group">
         <label>Modalidad de Contratacion</label>

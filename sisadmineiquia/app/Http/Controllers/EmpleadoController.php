@@ -144,10 +144,10 @@ class EmpleadoController extends Controller
  /******/
         $queryacuerdos = DB::raw("idacuerdo,motivoacuerdo,estadoacuerdo,fechaacuerdo,archivoacuerdo");
         $acuerdos=DB::table('acuerdoadministrat')->select($queryacuerdos)
-        ->where('idexpediente', '=',$idexp)->get();
-        $queryacuerdos = DB::raw("idacuerdo,motivoacuerdo,estadoacuerdo,fechaacuerdo,archivoacuerdo");
+        ->where('idempleado', '=',$id)->get();
+        /*$queryacuerdos = DB::raw("idacuerdo,motivoacuerdo,estadoacuerdo,fechaacuerdo,archivoacuerdo");
         $acuerdos=DB::table('acuerdoadministrat')->select($queryacuerdos)
-        ->where('idexpediente', '=',$idexp)->get();
+        ->where('idexpediente', '=',$idexp)->get();*/
         $querytiempoadicional = DB::raw("idtiempo,idexpediente,idciclo,fechainicio,fechafin,descripcion,ano");
         $tiempoadicional=DB::table('tiempoadicional')->select($querytiempoadicional)
         ->where('idexpediente', '=',$idexp)->orderBy('ano', 'desc')->orderBy('idciclo', 'desc')->get();

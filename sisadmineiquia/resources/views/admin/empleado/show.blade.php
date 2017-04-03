@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SEIQUIA - FIAUES</title>
+    <title>RRHHEIQUIA - FIAUES</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ public_path()}}/css/perfilempleado.css" rel="stylesheet">
@@ -50,16 +50,16 @@
         </div>
         @endif
         </div>
-        <h1>{{$emp->nombrecompleto}}</h1>
+        <h3>{{$emp->nombrecompleto}}</h3>
         @if($emp->estado=='1')
-        <h1><b>Estado:</b> Activo</h1>
+        <h3><b>Estado:</b> Activo</h3>
         @else
-        <h1><b>Estado:</b> De Baja</h1>
+        <h3><b>Estado:</b> De Baja</h3>
         @endif
         @if($emp->sexo=='M')
-        <h1><b>Sexo: </b> Masculino</h1>
+        <h3><b>Sexo: </b> Masculino</h3>
         @else
-        <h1><b>Sexo: </b> Femenino</h1>
+        <h3><b>Sexo: </b> Femenino</h3>
         @endif
     </div>
     <div style="clear:both;"></div>

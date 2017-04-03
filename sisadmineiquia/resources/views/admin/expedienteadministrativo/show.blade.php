@@ -91,7 +91,7 @@
                             <table class="table table-striped table-hover stacktable" id="tabladetalleexpadmin">
                                 <thead>
                                     <tr>
-                                        <th>Cod. Acuerdo</th>
+                                        <th>Cod. Contrato</th>
                                         <th>Tiempo Integral</th>
                                         <th>Descripcion Exp.</th>
                                         <th>Puesto</th>

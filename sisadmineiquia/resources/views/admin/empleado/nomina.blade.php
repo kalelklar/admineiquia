@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SEIQUIA - FIAUES</title>
+    <title>RRHHEIQUIA - FIAUES</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ public_path()}}/css/nominaempleados.css" rel="stylesheet">

@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SEIQUIA - FIAUES</title>
+    <title>RRHHEIQUIA - FIAUES</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -68,7 +68,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="/"><b>SEIQUIA<span>FIAUES</span></b></a>
+                <a class="navbar-brand logo" href="/"><b>RRHHEIQUIA<span>FIAUES</span></b></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav"> 

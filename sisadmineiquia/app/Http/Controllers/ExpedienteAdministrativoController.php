@@ -62,9 +62,10 @@ class ExpedienteAdministrativoController extends Controller
         // Llamamos a Empleado, utilizamos el método select y le pasamos el $raw almacenado en la linea superior.
         $empleado  = Empleado::select($raw)->get();
         $puesto = DB::table('puesto')->select('idpuesto','nombrepuesto')->get();
+        $acuerdo = DB::table('acuerdoadministrat')->select('idacuerdo','motivoacuerdo')->get();
         //return view("admin.expedienteadministrativo.create",["empleados"=>$empleado,"puestos"=>$puesto]);
         
-        return view("admin.expedienteadministrativo.create",["empleados"=>$empleado,"puestos"=>$puesto]);
+        return view("admin.expedienteadministrativo.create",["empleados"=>$empleado,"puestos"=>$puesto,"acuerdos"=>$acuerdo]);
     }
 
     public function store(ExpedienteAdministrativoFormRequest $request){
@@ -73,12 +74,17 @@ class ExpedienteAdministrativoController extends Controller
         if ($request)
         {
             $query=trim($request->get('idempleado'));
+            $queryacuerdos=trim($request->get('codigocontrato'));;
 
             $empleado=Empleado::find($query);
             //var_dump($empleado);
             $expadmin  = DB::table('expedienteadminist')->select('idempleado')->where('idempleado','=',$query)->get();
+            $acuerdoemp  = DB::table('acuerdoadministrat')->select('idempleado')->where('idacuerdo','=',$queryacuerdos)->get();
+            //dd($acuerdoemp[0]->idempleado);
             if ($expadmin){
                 Session::flash('store','El Expediente ya existe!!!');
+            }else if($acuerdoemp[0]->idempleado!=$query){
+                Session::flash('store','El codigo de contrato no corresponde al empleado  verifiquelo!!!');
             }else{
                     $p1=ucfirst($empleado->PRIMERAPELLIDO);
                     $p2=ucfirst($empleado->SEGUNDOAPELLIDO);
@@ -113,12 +119,12 @@ class ExpedienteAdministrativoController extends Controller
         ->join('departamento', 'puesto.iddepartamento', '=', 'departamento.iddepartamento')
         ->where('idexpediente','=',$id)->get();
 
-        $queryacuerdos = DB::raw("idacuerdo,motivoacuerdo,estadoacuerdo,fechaacuerdo,archivoacuerdo");
+        $queryacuerdos = DB::raw("acuerdoadministrat.idacuerdo,acuerdoadministrat.idempleado,acuerdoadministrat.motivoacuerdo,acuerdoadministrat.estadoacuerdo,acuerdoadministrat.fechaacuerdo,acuerdoadministrat.archivoacuerdo");
         $acuerdos=DB::table('acuerdoadministrat')->select($queryacuerdos)
-        ->where('idexpediente', '=',$id)->get();
-        $queryacuerdos = DB::raw("idacuerdo,motivoacuerdo,estadoacuerdo,fechaacuerdo,archivoacuerdo");
-        $acuerdos=DB::table('acuerdoadministrat')->select($queryacuerdos)
-        ->where('idexpediente', '=',$id)->get();
+        ->join('empleado', 'acuerdoadministrat.idempleado', '=', 'empleado.idempleado')
+        ->join('expedienteadminist', 'empleado.idempleado', '=', 'expedienteadminist.idempleado')
+        ->where('expedienteadminist.idexpediente', '=',$id)->get();
+
         $querytiempoadicional = DB::raw("idtiempo,idexpediente,idciclo,fechainicio,fechafin,descripcion,ano");
         $tiempoadicional=DB::table('tiempoadicional')->select($querytiempoadicional)
         ->where('idexpediente', '=',$id)->orderBy('ano', 'desc')->orderBy('idciclo', 'desc')->get();

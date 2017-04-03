@@ -27,8 +27,12 @@
 				<div id="mensajeFechaAper" class="errores">Fecha invalida</div> 
 			</div>
 			<div class="form-group">
-				<label>Codigo Acuerdo</label>
-				<input class="form-control" name="codigocontrato" required class="form-control" placeholder="AC-000-0000" id="codCon" value="{{old('codigocontrato')}}" onkeyup="corregirCodCon();">
+				<label>Codigo Contratacion</label>
+				<select name="codigocontrato" required class="form-control" class="form-control selectpicker" placeholder="AC-000-0000" id="codCon" value="{{old('codigocontrato')}}" onkeyup="corregirCodCon();">
+                   @foreach ($acuerdos as $a)
+                         <option value="{{$a->idacuerdo}}">{{$a->idacuerdo}}</option>
+                   @endforeach
+                </select>
         	<div id="mensajeCodCon" class="errores">Código invalido</div>
 			</div>
 			<div class="form-group">
