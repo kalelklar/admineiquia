@@ -56,8 +56,21 @@ class UsersController extends Controller
 			'type'=>'required|not_in:0'
 			);
 
+		$messages= array ('name.required' =>'El Nombre es requerido',
+                'email.required'=>'Correo Electronico es requerido',
+                'password.required'=>'Contraseña es requerido',
+                'password_confirmation.required'=>'Confirmar Contraseña es requerido',
+                'type.required'=>'Tipo de Usuario es requerido',
+                'name.unique' =>'El Nombre ya existe',
+                'email.email'=>'Correo Electronico no es valido',
+                'password.min'=>'Contraseña debe contener minimo 6 caracteres',
+                'password_confirmation.same'=>'Confirmar Contraseña debe concidir con la Contraseña',
+                'type.not_in'=>'Tipo de Usuario debe seleccionar uno',
+                'email.unique'=>'Correo Electronico ya existe',
+                );
+
 		// Llamamos a Validator pasándole las reglas de validación.
-		$validator=Validator::make($request->all(),$rules);
+		$validator=Validator::make($request->all(),$rules,$messages);
 
 		// Si falla la validación redireccionamos de nuevo al formulario
 		// enviando la variable Input (que contendrá todos los Input recibidos)
@@ -95,15 +108,22 @@ class UsersController extends Controller
 
     	// Realizamos la validación de datos recibidos del formulario.
 		$rules=array(
-			'name'=>'required|unique:users', // Username es único en la tabla users
-			'email'=>'required|email|unique:users', // Username es único en la tabla users
 			'password'=>'required|min:6',
 			'password_confirmation'=>'required|same:password',
 			'type'=>'required|not_in:0'
 			);
 
+		$messages= array (
+                'password.required'=>'Contraseña es requerido',
+                'password_confirmation.required'=>'Confirmar Contraseña es requerido',
+                'type.required'=>'Tipo de Usuario es requerido',
+                'password.min'=>'Contraseña debe contener minimo 6 caracteres',
+                'password_confirmation.same'=>'Confirmar Contraseña debe concidir con la Contraseña',
+                'type.not_in'=>'Tipo de Usuario debe seleccionar uno'
+                );
+
 		// Llamamos a Validator pasándole las reglas de validación.
-		$validator=Validator::make($request->all(),$rules);
+		$validator=Validator::make($request->all(),$rules,$messages);
 
 		// Si falla la validación redireccionamos de nuevo al formulario
 		// enviando la variable Input (que contendrá todos los Input recibidos)
@@ -115,8 +135,7 @@ class UsersController extends Controller
 			->withErrors($validator->messages());
 		}else{
 		    	$affectedRows = User::where('id','=',$id)
-		        ->update(['name'=> $request->get('name'),
-		            'email'=>$request->get('email'),
+		        ->update([
 		            'password' =>bcrypt($request->get('password')),
 		            'type'=>$request->get('type')]);
 		        Session::flash('update','El usuario se ha actualizado correctamente!!!');       

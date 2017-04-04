@@ -1,0 +1,78 @@
+body {
+  margin: 5mm 5mm 5mm 5mm;
+  background-color: #fff;
+}
+
+#contenedor{
+    border: 0px;
+    width: 600px;
+    margin:auto;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0px;padding: 0px;
+    text-align: center;
+    font-family: 'Merienda', cursive;
+    color:#382424;
+    text-shadow:0px 4px 8px rgba(0,0,0,0.4);
+
+}
+
+h2 {
+    margin: 0px;padding: 0px;
+    text-align: center;
+    font-family: 'Merienda', cursive;
+    color:#382424;
+    text-shadow:0px 4px 8px rgba(0,0,0,0.4);
+}
+
+h3 {
+    margin: 1px;padding: 1px;
+    text-align: left;
+    clear:left;
+    z-index:1;
+}
+
+#logo{
+    height:50px;
+    width:40px;
+    float:right;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    margin-left: 0px; 
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px; height: 50px;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+
+img.alineadoTextoImagenArriba{
+  vertical-align: text-top;  
+}
+img.alineadoTextoImagenCentro{
+  vertical-align: middle;
+  /* Ojo vertical-align: text-middle no existe*/
+}
+img.alineadoTextoImagenAbajo{
+  vertical-align: text-bottom;  
+}
+
+#reporteacademico h2{
+    margin: 0px;padding: 0px;
+    text-align: left;
+    font-family: 'Merienda', cursive;
+    color:#382424;
+    text-shadow:0px 4px 8px rgba(0,0,0,0.4);
+}
+
+
+
+#titulo {
+float:center;
+}

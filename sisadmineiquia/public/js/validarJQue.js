@@ -3,13 +3,13 @@
 	var exprNit = /^\d{4}-\d{6}-\d{3}-\d{1}$/;
 	var exprIsss = /^\d{9}$/;
 	var exprAfp = /^\d{12}$/;
-	var exprCodCon = /^[aA-zZ]{2}\d{4}$/;
+	var exprCodCon = /^[aA-zZ]{2}\d{7}$/;
 
 	$(document).ready(function(){
 		$("#guardar").click(function(){
 
 			var primernombre = $("#primernombre").val();
-			var segundonombre = $("#segundonombre").val();
+			//var segundonombre = $("#segundonombre").val();
 			var primerapellido = $("#primerapellido").val();
 			var segundoapellido = $("#segundoapellido").val();
 			var dui = $("#dui").val();
@@ -26,14 +26,14 @@
 
 				$("#mensaje1").fadeOut();
 
-				if(segundonombre == "" || !expr.test(segundonombre)){
+				/*if(segundonombre == "" || !expr.test(segundonombre)){
 
 					$("#mensaje2").fadeIn();
 					return false;
 
 				}else{
 
-					$("#mensaje2").fadeOut();
+					$("#mensaje2").fadeOut();*/
 				
 					if(primerapellido == "" || !expr.test(primerapellido)){
 

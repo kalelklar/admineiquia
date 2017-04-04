@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">No tienes derechos de acceso...<a href="/home">ir a inicio</a></div>
+                <div class="title">No tienes derechos de acceso...<a href="{{url('/home')}}">ir a inicio</a></div>
 
             </div>
         </div>

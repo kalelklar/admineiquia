@@ -60,7 +60,13 @@ class PuestoController extends Controller
         
     public function show($id)
     {
-    	return view("admin.puesto.show",["puesto"=>Puesto::findOrFail($id)]);
+        $detallepuesto=DB::table('puesto as p')
+            ->join('departamento as d','p.iddepartamento','=','d.iddepartamento')
+            ->join('perfilpuesto as a','p.idperfilpuesto','=','a.idperfilpuesto')
+            ->select('p.idpuesto','p.nombrepuesto','p.descripcionpuesto','p.salariopuesto','d.nombredepartamento','d.descripciondeparta','a.profesion','a.reporta','a.sustituto','a.relaciones','a.responsabilidades','a.sustituye')
+            ->where('p.idpuesto','=',$id)->get();
+        //dd($acuerdos);
+    	return view("admin.puesto.show",["puesto"=>$detallepuesto]);
     }
         
     public function edit($id)

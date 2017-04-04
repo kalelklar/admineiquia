@@ -13,6 +13,6 @@ class Tiempo extends Model
     protected $primaryKey='idtiempo';
     public $timestamps=false;
 
-    protected $fillable=['idexpediente','idciclo','fechainicio','fechafin','descripcion'];
+    protected $fillable=['idexpediente','idciclo','fechainicio','fechafin','descripcion','ano'];
 }
 

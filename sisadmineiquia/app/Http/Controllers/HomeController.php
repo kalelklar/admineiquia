@@ -50,7 +50,6 @@ class HomeController extends Controller
         
     public function update(Request $request,$id)
     {
-
         // Realizamos la validación de datos recibidos del formulario.
         $rules=array(
             'passwordactual'=>'required|min:6',
@@ -58,8 +57,18 @@ class HomeController extends Controller
             'password_confirmation'=>'required|same:password',
             );
 
+        $messages= array (
+                'passwordactual.required'=>'Contraseña Actual es requerido',
+                'password_confirmation.required'=>'Confirmar Contraseña es requerido',
+                'password.required'=>'Nueva Contraseña es requerido',
+                'passwordactual.min'=>'Contraseña Actual debe contener minimo 6 caracteres',
+                'password.min'=>'Contraseña debe contener minimo 6 caracteres',
+                'password_confirmation.same'=>'Confirmar Contraseña debe concidir con la Nueva Contraseña',
+                );
+
         // Llamamos a Validator pasándole las reglas de validación.
-        $validator=Validator::make($request->all(),$rules);
+        $validator=Validator::make($request->all(),$rules,$messages);
+    
 
         // Si falla la validación redireccionamos de nuevo al formulario
         // enviando la variable Input (que contendrá todos los Input recibidos)
@@ -77,7 +86,7 @@ class HomeController extends Controller
                 return Redirect::to('home/'.$id.'/edit'); 
 
             }else{
-                Session::flash('update','La contraseña actual no concide con su usuario!!!');
+                Session::flash('update','No se actualizo la contraseña actual no concide con su usuario!!!');
                 return Redirect::to('home/'.$id.'/edit'); 
             }
 

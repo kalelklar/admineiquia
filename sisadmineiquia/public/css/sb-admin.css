@@ -329,3 +329,9 @@ ul.alert-dropdown {
 .go-top a {
     color: #101010;
 }
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 80px; height: 90px;
+}

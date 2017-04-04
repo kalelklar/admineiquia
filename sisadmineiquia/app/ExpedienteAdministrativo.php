@@ -11,5 +11,5 @@ class ExpedienteAdministrativo extends Model
     protected $primaryKey='idexpediente';
     public $timestamps=false;
 
-    protected $fillable=['idempleado','idpuesto','fechaapertura','codigocontrato','tiempoadicionalinicio','tiempoadicionalfin','tiempointegralinicio','tiempointegralfin','descripcionadmin'];
+    protected $fillable=['idexpediente','idpuesto','fechaapertura','codigocontrato','tiempointegral','descripcionadmin','modalidadcontratacion'];
 }

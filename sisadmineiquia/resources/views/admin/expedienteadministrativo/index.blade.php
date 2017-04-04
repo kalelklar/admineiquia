@@ -4,7 +4,7 @@
                     <div class="col-lg-12">
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-home"></i> <a href="/admin/empleado"> Administrar Empleados</a>
+                                <i class="fa fa-home"></i> <a href="{{url('/admin/expedienteadministrativo')}}"> Administrar Expediente</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-desktop"></i>
@@ -14,13 +14,19 @@
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="row">
                 <div class="col-lg-12">
-                <label><a href="expedienteadministrativo/create" class="btn btn-primary btn-lg" role="button">Expediente Administrativo</a></label>
+                <label><a href="{{url('/admin/expedienteadministrativo/create')}}" class="btn btn-success btn-lg" role="button"><i class="fa fa-plus"></i> Nuevo Expediente Administrativo</a></label>
                 <!--
                 @include('admin.empleado.search')-->
+                
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
                 @include('mensajes.messages')
- 
-                 
+                </div>
+                </div>
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -30,7 +36,9 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
+                                        <th>Empleado</th>
                                         <th>Fecha Apertura</th>
+                                        <th>Modalidad Contratacion</th>
                                         <th>Puesto</th>
                                         <th>Tiempo Integral</th>
                                         <th>Opciones</th>
@@ -39,12 +47,20 @@
                                 <tbody>
                                  @foreach ($expedienteadministrativos as $exp)
                                     <tr>
-                                    	<td>{{ $exp->IDEXPEDIENTE}}</td>
-                                        <td>{{ $exp->FECHAAPERTURA}}</td>
-                                        <td>{{ $exp->IDPUESTO}}</td>
-                                        <td>{{ $exp->TIEMPOINTEGRAL}}</td>
+                                    	<td>{{ $exp->idexpediente}}</td>
+                                        <td>{{ $exp->nombrecompleto}}</td>
+                                        <td>{{ $exp->fechaapertura}}</td>
+                                        <td>{{ $exp->modalidadcontratacion}}</td>
+                                        <td>{{ $exp->nombrepuesto}}</td>
+                                        @if($exp->tiempointegral=="1")
+                                        <td>Si Posee</td>
+                                        @else
+                                        <td>No Posee</td>
+                                        @endif
                                         <td>
-                                        <a href="{{URL::action('ExpedienteAdministrativoController@edit',$exp->IDEXPEDIENTE)}}"><button type="button" class="btn btn-sm btn-primary">Editar Expediente Administrativo</button></a>
+                                        <a href="{{URL::action('ExpedienteAdministrativoController@edit',$exp->idempleado)}}"><button type="button" class="btn btn-xs btn-primary"><i class="glyphicon  glyphicon-edit"></i> Editar</button></a>
+                                        <a href="{{URL::action('ExpedienteAdministrativoController@show',$exp->idexpediente)}}"><button class="btn btn-xs btn-info"><i class="glyphicon glyphicon-list-alt"></i> Detalles</button></a>
+                                        <a href="{{URL::action('EmpleadoController@perfilreport',$exp->idempleado)}}"><button class="btn btn-xs btn-success"><i class="fa fa-user"></i> Perfil</button></a>
                                         </td>
                                     </tr>
                                 @endforeach 
