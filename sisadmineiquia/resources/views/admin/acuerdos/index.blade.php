@@ -31,7 +31,7 @@
             <h2>Listado de Acuerdos Administrativos</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="tablaacuerdos">
-                    <thead>
+                    <thead style="background-color: #A9D0F5">
                         <tr>
                             <th>Código</th>
                             <th>Archivo</th>

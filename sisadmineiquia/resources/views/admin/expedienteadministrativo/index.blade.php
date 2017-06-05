@@ -33,7 +33,7 @@
                         <h2>Listado de Expedientes</h2>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="tablaexpadmin">
-                                <thead>
+                                <thead style="background-color: #A9D0F5">
                                     <tr>
                                         <th>Id</th>
                                         <th>Empleado</th>

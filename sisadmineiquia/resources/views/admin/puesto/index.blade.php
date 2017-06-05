@@ -11,7 +11,7 @@
                
   <div class="col-lg-12">
   	 <label><a href="{{url('/admin/puesto/create')}}" class="btn btn-success btn-lg" role="button"><i class="fa fa-plus"></i> Nuevo Puesto</a></label>
-  	 
+  	  
   </div>
   <div class="col-lg-12">
      @include('mensajes.messages')
@@ -26,8 +26,7 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover" id="tablapuesto">
-				<thead>
-					<th>Id</th>
+				<thead style="background-color: #A9D0F5">
 					<th>Nombre</th>
 					<th>Departamento</th>
 					<th>Descripción</th>
@@ -37,7 +36,6 @@
 				</thead>
                @foreach ($puestos as $pues)
 				<tr>
-					<td>{{ $pues->idpuesto}}</td>
 					<td>{{ $pues->nombrepuesto}}</td>
 					<td>{{ $pues->departamento}}</td>
 					<td>{{ $pues->descripcionpuesto}}</td>

@@ -20,5 +20,5 @@ role="dialog" tabindex="-1" id="modal-delete-{{$per->idpermiso}}">
 		</div>
 	</div>
 	{{Form::Close()}}
-
+ 
 </div>

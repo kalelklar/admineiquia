@@ -17,7 +17,7 @@
     @include('mensajes.errores')
     @include('mensajes.messages')
 </div>
-
+ 
   @foreach ($permiso as $per)         
   @endforeach
   {!!Form::model($permiso,['method'=>'PATCH','route'=>['admin.permiso.update',$per->idpermiso]])!!}
@@ -57,7 +57,7 @@
       
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-              <label for="fechasolicitud">Fecha Solicitud</label>
+              <label for="fechasolicitud">Fecha Solucitud</label>
               <input type="text" name="fechasolicitud" class="tcal form-control" required value="{{$per->fechasolicitud}}" value="{{old('fechasolicitud')}}" class="form-control" >
             </div>
 
@@ -84,21 +84,14 @@
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group">
-                <label for="estadopermiso">Estado</label>
-                <select name="estadopermiso" class="form-control">
-                  @if($per->gocesueldo==0)
-                    <option value="" selected>En espera</option>
-                    <option value="1" >Aprobado</option>
-                    <option value="2" >Denegado</option>
-                  @else @if($per->gocesueldo==1)
-                     <option value="0" >En espera</option>
+                <label for="estadopermiso" >Estado</label>
+                <select name="estadopermiso" id="estadopermiso" class="form-control">
+                  @if($per->estadopermiso==1)
                      <option value="1" selected>Aprobado</option>
                      <option value="2" >Denegado</option>
                         @else
-                        <option value="0" >En espera</option>
                         <option value="1" >Aprobado</option>
                         <option value="2" selected>Denegado</option>
-                        @endif
                   @endif     
                 </select>     
               </div>
@@ -108,19 +101,12 @@
               <div class="form-group">
                 <label for="gocesueldo">Goce de Sueldo </label>
                 <select name="gocesueldo" id="gocesueldo" class="form-control">
-                  @if($per->gocesueldo==0)
-                    <option value="" selected>Sin contestar</option>
-                    <option value="1">Si</option>
-                    <option value="2">No</option>
-                  @else @if($per->gocesueldo==1)
-                    <option value="0">Sin contestar</option>
+                  @if($per->gocesueldo==1)
                     <option value="1" selected>Si</option>
                     <option value="2">No</option>
                         @else
-                        <option value="0">Sin contestar</option>
                         <option value="1">Si</option>
                         <option value="2" selected>No</option>
-                        @endif
                   @endif
                 </select>     
               </div>
@@ -128,7 +114,7 @@
 
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-              <label for="fechapermiso">Fecha Ingreso</label>
+              <label for="fechapermiso">Fecha Registro</label>
               <input type="text" name="fechapermiso" class="tcal form-control" value="{{$per->fechapermiso}}" required value="{{old('fechapermiso')}}" class="form-control" >
             </div>
           </div>
@@ -138,8 +124,8 @@
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
         <div class="form-group">
-          <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-refresh"></i> Guardar</button>
-          <button class="btn btn-danger" type="reset"><i class="glyphicon glyphicon-remove-circle"></i> Cancelar</button>
+          <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-refresh"></i> Actualizar</button>
+           <a href="{{url('admin/permiso')}}" class="btn btn-danger" role="button"><i class="glyphicon glyphicon-remove-circle"></i> Cancelar</a>
         </div>
       </div>
     </div>    
@@ -150,11 +136,29 @@
 <script>
 
 $("#idexpediente").change(mostrarPuesto);
+$("#estadopermiso").change(elegir);
+$("#gocesueldo").change(elegir2);
 
 function mostrarPuesto()
 {
   dato=document.getElementById('idexpediente').value.split('_');
   $("#cargoempleado").val(dato[1]);
+}
+
+function elegir()
+{
+  dato=document.getElementById('estadopermiso').value.split('');
+  if(dato==2)
+    $("#gocesueldo").val(dato);
+}
+
+function elegir2()
+{
+  p_estado=document.getElementById('estadopermiso').value.split('');
+  
+  if(p_estado==2){
+    $("#gocesueldo").val(p_estado);
+  }
 }
 
 </script>

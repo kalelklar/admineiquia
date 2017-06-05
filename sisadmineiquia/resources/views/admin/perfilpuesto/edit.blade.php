@@ -15,14 +15,16 @@
       <h3>Editar Perfil de Puesto</h3>
    </div>
 </div>
+ 
+@include('mensajes.messages')
+@include('mensajes.errores')
+
+{!!Form::model($perfil,['method'=>'PATCH','route'=>['admin.perfilpuesto.update',$perfil->IDPERFILPUESTO]])!!}
+{{Form::token()}}
 
 
 <div class="row">
-   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-   @include('mensajes.messages')
-
-{!!Form::model($perfil,['method'=>'PATCH','route'=>['admin.perfilpuesto.update',$perfil->IDPERFILPUESTO]])!!}
-{{Form::token()}} 
+   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
          
          <div class="form-group">
    	     <label for="profesion">Profesion</label>
@@ -60,8 +62,8 @@
          <div class="form-group">
          <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-refresh"></i> Actualizar</button>
          <a href="{{url('/admin/perfilpuesto')}}" class="btn btn-danger" role="button"><i class="glyphicon glyphicon-remove-circle"></i> Cancelar</a>
-   </div>
       </div>
-    </div>     
+   </div>
+</div>     
 {!!Form::close()!!}			
 @endsection

@@ -11,14 +11,15 @@ role="dialog" tabindex="-1" id="modal-delete-{{$asis->idasistencia}}">
                 <h4 class="modal-title">Eliminar Asistencia</h4>
 			</div>
 			<div class="modal-body">
-				<p>¿Desea eliminar el registro de asistencia?</p>
+				<p>¡El registro y los detalles se eliminaran permanentemente!</p>
+				<p>¿Eliminar el registro?</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 				<button type="submit" class="btn btn-primary">Confirmar</button>
 			</div>
 		</div>
-	</div>
+	</div> 
 	{{Form::Close()}}
 
 </div>
