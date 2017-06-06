@@ -83,6 +83,9 @@
             <li>
                 <a href="{{url('/admin/asistencia')}}"><i class="fa fa-users"></i> Administrar Asistencias</a>
             </li>
+            <li>
+                <a href="{{url('/admin/asistencia/reporte')}}"><i class="glyphicon glyphicon-save-file"></i> Reporte Asistencias</a>
+            </li>
         </ul>
     </li>
     <li>
@@ -93,6 +96,9 @@
             </li>
             <li>
                 <a href="{{url('/admin/permiso')}}"><i class="fa fa-users"></i> Administrar Permisos</a>
+            </li>
+            <li>
+                <a href="{{url('/admin/permiso/reporte')}}"><i class="glyphicon glyphicon-save-file"></i> Reporte Permisos</a>
             </li>
         </ul>
     </li>

@@ -47,7 +47,7 @@
                                       </div>
                                    </div><br><br>
                                         <table class="table table-bordered table-hover" id="tablaempleado">
-                                            <thead>
+                                            <thead style="background-color: #A9D0F5">
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Foto</th>

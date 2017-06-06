@@ -29,7 +29,7 @@
                         <h2>Listado de Expedientes Academicos</h2>
                         <div class="table-responsive">    
                             <table class="table table-bordered table-hover" id="tablaexpacad">
-                                <thead>
+                                <thead style="background-color: #A9D0F5">
                                     <tr>
                                         <th>Id</th>
                                         <th>Empleado</th>

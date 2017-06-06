@@ -28,10 +28,11 @@ class AsistenciaFormRequest extends Request
              'idasistencia',
              'fechaasistencia'=>'required',
              'turno'=>'required',
-             'horaentrada'=>'required',
-             'horasalida'=>'required',
+             'asistio'=>'required',
+             'horaentrada',
+             'horasalida',
              'observaciones'
            
-        ];
+        ]; 
     }
 }

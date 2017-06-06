@@ -28,7 +28,7 @@
                         <h2>Listado de Usuarios</h2>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="tablausers">
-                                <thead>
+                                <thead style="background-color: #A9D0F5">
                                     <tr>
                                         <th>Id</th>
                                         <th>Nombre</th>

@@ -37,9 +37,17 @@ Route::group(['middleware' =>  ['auth','admin']], function () {
   Route::resource('admin/perfilpuesto','PerfilPuestoController');
 });
 
+Route::get('admin/asistencia/reporte', function () {
+    return view('admin/asistencia/reporte');
+});
+
 Route::group(['middleware' =>  ['auth','admin']], function () {
   Route::resource('admin/asistencia','AsistenciaController');
-  Route::resource('admin/asistencia/reporte','AsistenciaController@reporte');
+  //Route::resource('admin/asistencia/reporte','AsistenciaController@mostrarreporte');
+});
+
+Route::get('admin/permiso/reporte', function () {
+    return view('admin/permiso/reporte');
 });
 
 Route::group(['middleware' =>  ['auth','alltype']], function () {

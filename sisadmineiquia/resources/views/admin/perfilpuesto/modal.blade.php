@@ -18,7 +18,7 @@ role="dialog" tabindex="-1" id="modal-delete-{{$per->idperfilpuesto}}">
 				<button type="submit" class="btn btn-primary">Confirmar</button>
 			</div>
 		</div>
-	</div>
+	</div> 
 	{{Form::Close()}}
 
 </div>

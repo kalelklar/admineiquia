@@ -18,7 +18,7 @@ role="dialog" tabindex="-1" id="modal-delete-{{$pues->idpuesto}}">
 				<button type="submit" class="btn btn-primary">Confirmar</button>
 			</div>
 		</div>
-	</div>
+	</div> 
 	{{Form::Close()}}
 
 </div>

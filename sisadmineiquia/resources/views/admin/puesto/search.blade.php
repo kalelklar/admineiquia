@@ -6,6 +6,6 @@
 			<button type="submit" class="btn btn-primary">Buscar</button>
 		</span>
 	</div>
-</div>
+</div> 
 
 {{Form::close()}}

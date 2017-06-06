@@ -12,7 +12,7 @@
                             </li>
                         </ol>
                     </div>
-               
+                
                 <!-- /.row -->
          <div class="col-lg-12">
                <label><a href="{{url('/admin/perfilpuesto/create')}}" class="btn btn-success btn-lg" role="button"> <i class="fa fa-plus"></i> Nuevo Perfil</a></label>
@@ -34,8 +34,7 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover" id="tablaperfilpuesto">
-				<thead>
-					<th>Id</th>
+				<thead style="background-color: #A9D0F5">
 					<th>Profesion</th>
 					<th>Reporta a:</th>
 					<th>Sustituto</th>
@@ -46,7 +45,6 @@
 				</thead>
                @foreach ($perfil as $per)
 				<tr>
-					<td>{{ $per->idperfilpuesto}}</td>
 					<td>{{ $per->profesion}}</td>
 					<td>{{ $per->reporta}}</td>
 					<td>{{ $per->sustituto}}</td>

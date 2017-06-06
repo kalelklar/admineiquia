@@ -26,7 +26,7 @@
                         <h2>Listado de Tiempos Adicionales</h2>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="tablatiempo">
-                                <thead>
+                                <thead style="background-color: #A9D0F5">
                                     <tr>
                                         <th>Id. Exp</th>
                                         <th>Empleado</th>

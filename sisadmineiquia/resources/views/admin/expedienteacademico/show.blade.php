@@ -20,7 +20,7 @@
                         
                         <div class="table-responsive">
                             <table class="table table-striped table-hover stacktable" id="tabladetalleexpacad">
-                                <thead>
+                                <thead style="background-color: #A9D0F5">
                                     <tr>
                                         <th>Cod. Exp</th>
                                         <th>Foto</th>
