@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     7/12/2016 8:51:16 a. m.                      */
+/* Created on:     2/4/2017 7:00:27 p. m.                       */
 /*==============================================================*/
 
 
@@ -38,11 +38,7 @@ drop table if exists TIEMPOADICIONAL;
 create table ACUERDOADMINISTRAT
 (
    IDACUERDO            varchar(11) not null,
-<<<<<<< HEAD
-   IDEXPEDIENTE         varchar(20) not null,
-=======
-   IDEMPLEADO           int not null,
->>>>>>> origin/fabi
+   IDEMPLEADO           int,
    MOTIVOACUERDO        varchar(50) not null,
    DESCRIPCIONACUERDO   varchar(250) not null,
    ESTADOACUERDO        varchar(10) not null,
@@ -113,6 +109,7 @@ create table DETALLEASISTENCIA
    HORAENTRADA          char(8) not null,
    HORASALIDA           char(8) not null,
    OBSERVACIONES        varchar(250),
+   ASISTIO              int not null,
    primary key (IDDETALLEASISTENCIA)
 );
 
@@ -163,10 +160,10 @@ create table EXPEDIENTEADMINIST
    IDEMPLEADO           int not null,
    IDPUESTO             int not null,
    FECHAAPERTURA        varchar(20) not null,
-   CODIGOCONTRATO       varchar(20) not null,
    TIEMPOINTEGRAL       bool not null,
    DESCRIPCIONADMIN     varchar(250),
    MODALIDADCONTRATACION varchar(60) not null,
+   CODIGOCONTRATO       varchar(11) not null,
    primary key (IDEXPEDIENTE)
 );
 
@@ -245,7 +242,7 @@ create table TIEMPOADICIONAL
    primary key (IDTIEMPO)
 );
 
-alter table ACUERDOADMINISTRAT add constraint FK_FK_EMPLEADO_ACUERDADMIN foreign key (IDEMPLEADO)
+alter table ACUERDOADMINISTRAT add constraint FK_RELATIONSHIP_15 foreign key (IDEMPLEADO)
       references EMPLEADO (IDEMPLEADO) on delete restrict on update restrict;
 
 alter table ASIGNACIONACADEMIC add constraint FK_FK_CICLO_ASIGNACIONACAD foreign key (IDCICLO)
